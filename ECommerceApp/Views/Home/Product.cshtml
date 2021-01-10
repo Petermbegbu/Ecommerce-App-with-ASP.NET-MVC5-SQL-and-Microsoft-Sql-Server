@@ -1,0 +1,217 @@
+﻿
+@{
+    ViewBag.Title = "Product";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    .more{
+        padding:4px 4px;
+        margin:0 1.25% 0 0;
+        border:1px solid #999;
+      	box-shadow:0 1px 3px rgba(0,0,0,.13);
+    }
+    .la1{font-size:12px; font-weight:500; color:#000;}
+    .la2{font-size:13px; font-weight:500; color:#000;}
+    .la3{font-size:14px; font-weight:500; color:#000;}
+    .add, .add:visited{
+        font-size:15px;
+        font-weight:700;
+        padding: 4px 10px;
+        color:#fff;
+        background-color: coral;
+        border:1px solid orange;
+        border-radius:10px;
+    }
+    .add:hover{
+        background-color:orange;
+    }
+    .img{
+	background-repeat: no-repeat;
+    background-attachment: fixed;
+	background-size: contain;
+	background-position: center;
+    }
+
+    .ww1 { width: 1%; }
+    .ww2 { width: 2%; }
+    .ww3 { width: 3%; }
+    .ww4 { width: 4%; }
+    .ww5 { width: 5%; }
+    .ww6 { width: 6%; }
+    .ww7 { width: 7%; }
+    .ww8 { width: 8%; }
+    .ww9 { width: 9%; }
+    .ww10 { width: 10%; }
+    .ww15 { width: 15%; }
+    .ww20 { width: 20%; }
+    .ww25 { width: 25%; }
+    .ww30 { width: 30%; }
+    .ww35 { width: 35%; }
+    .ww40 { width: 44%; }
+    .ww45 { width: 45%; }
+    .ww50 { width: 50%; }
+    .ww55 { width: 55%; }
+    .ww60 { width: 60%; }
+    .ww65 { width: 69%; }
+    .ww70 { width: 70%; }
+    .ww75 { width: 75%; }
+    .ww80 { width: 84%; }
+    .ww85 { width: 85%; }
+    .ww90 { width: 90%; }
+    .ww95 { width: 95%; }
+    .ww100 { width: 100%; }
+
+    
+    .inline-block{
+        display:inline-block;
+    }
+    .va-top{vertical-align: top;}
+
+    .va-mid{vertical-align: middle;}
+
+    .va-bot{vertical-align: bottom;}
+
+    .all{text-align:left}
+    .alc{text-align:center;}
+    .alr{text-align:right;}
+    .drk{font-weight:700;}
+
+    .cred { color: red; } 
+    .cgrn { color: #4caf50; }
+    .cblu { color: #428bca; }
+    .cwh { color: #fff; }
+    .cora { color: #ffc107; }
+    .blk { color: #000; }
+    .transp{color: transparent;}
+
+    .grn { background-color: #48cfad; } 
+    .deep-g{ background-color: #BDBDBD; } 
+    .orange { background-color: #e74f1f; }
+    .wh { background-color: #fff; }
+    .oraa { background-color: #ff9800; } 
+    .lme { background-color: #f0f4c3; } 
+    .ash { background-color: #f9f9f9; }
+    .blu { background-color: #0ff; }
+    .bluu { background-color: aliceblue; }
+    .pnk { background-color: #fffafa; }
+    .gry { background-color: #d3d3d3; }
+    .yel { background-color: #dddd00; } 
+    .yell{ background-color: #ffff00; }
+    .ora { background-color: #ffe0c0; }
+    .red { background-color: red; } 
+    .purp { background-color: #ff00ff; } 
+    .d-bgc { background-color: #e3e3e3; } 
+
+</style>
+
+
+<div>
+    <section class="all" style="margin:45px 0;">
+        <div class="inline-block va-top ww45" style="padding: 0 25px 0 0;">
+            <div style="">
+                <img style="max-width:100%;" class="img" src="~/Content/images/Phone-slide.jpg" />
+            </div>
+        </div>
+        <div class="inline-block va-top ww50" style="">
+            <div>
+                <p class="la3 drk all">Sunlight Multi-Purpose Washing Liquid Lemon 4L</p>
+            </div>
+            <hr />
+            <div>
+                <p class="la2 drk cgrn drk" ># 4,000</p>
+            </div>
+            <hr />
+            <div>
+                <input type="button" value="ADD TO CART" class="add" />
+            </div>
+        </div>
+    </section>
+
+    <section style="margin:45px 0;">
+        <div>
+            <p class="la3 drk">More Items</p>
+        </div>
+        <div class="all">
+            <div class="inline-block va-top ww15 more">
+                <div class="alc">
+                    <img style="max-width:100%; height:150px;" class="img" src="~/Content/images/car.jpg"/>
+                </div>
+                <p class="la2 all">2 in 1 Spring Sensations Hand Sanitizer</p>
+                <p class="la2 all cgrn drk"># 3,000</p>
+                <p class="la1 all" style="text-decoration:line-through;"># 5,000</p>
+            </div>
+            <div class="inline-block va-top ww15 more">
+                <div class="alc">
+                    <img style="max-width:100%; height:150px;" class="img" src="~/Content/images/car.jpg" />
+                </div>
+                <p class="la2 all">2 in 1 Spring Sensations Hand Sanitizer</p>
+                <p class="la2 all cgrn drk"># 3,000</p>
+                <p class="la1 all" style="text-decoration:line-through;"># 5,000</p>
+            </div>
+            <div class="inline-block va-top ww15 more">
+                <div class="alc">
+                    <img style="max-width:100%; height:150px;" class="img" src="~/Content/images/car.jpg" />
+                </div>
+                <p class="la2 all">2 in 1 Spring Sensations Hand Sanitizer</p>
+                <p class="la2 all cgrn drk"># 3,000</p>
+                <p class="la1 all" style="text-decoration:line-through;"># 5,000</p>
+            </div>
+            <div class="inline-block va-top ww15 more">
+                <div class="alc">
+                    <img style="max-width:100%; height:150px;" class="img" src="~/Content/images/car.jpg" />
+                </div>
+                <p class="la2 all">2 in 1 Spring Sensations Hand Sanitizer</p>
+                <p class="la2 all cgrn drk"># 3,000</p>
+                <p class="la1 all" style="text-decoration:line-through;"># 5,000</p>
+            </div>
+            <div class="inline-block va-top ww15 more">
+                <div class="alc">
+                    <img style="max-width:100%; height:150px;" class="img" src="~/Content/images/car.jpg" />
+                </div>
+                <p class="la2 all">2 in 1 Spring Sensations Hand Sanitizer</p>
+                <p class="la2 all cgrn drk"># 3,000</p>
+                <p class="la1 all" style="text-decoration:line-through;"># 5,000</p>
+            </div>
+            <div class="inline-block va-top ww15 more">
+                <div class="alc">
+                    <img style="max-width:100%; height:150px;" class="img" src="~/Content/images/car.jpg" />
+                </div>
+                <p class="la2 all">2 in 1 Spring Sensations Hand Sanitizer</p>
+                <p class="la2 all cgrn drk"># 3,000</p>
+                <p class="la1 all" style="text-decoration:line-through;"># 5,000</p>
+            </div>
+        </div>
+    </section>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

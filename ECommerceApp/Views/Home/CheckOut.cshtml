@@ -1,0 +1,85 @@
+﻿@using ECommerceApp.ViewModel;
+
+@{
+    ViewBag.Title = "CheckOut";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    .linkStyle{
+        text-decoration: none;
+    }
+</style>
+
+<h3>Cart items</h3>
+
+@if ( Session["cart"] == null )
+{
+    <div class="alert alert-danger">
+        <strong>No product added to cart</strong>
+    </div> 
+}
+else
+{
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Product</th>
+                <th>Quantity</th>
+                <th>Unit Price</th>
+                <th>Total Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                decimal Total = 0;
+            }
+
+
+
+            @foreach (var item in (List<RandomViewModel>)Session["cart"])
+            {
+                <tr>
+                    <td>@item.Tbl_Product.ProductName</td>
+                    <td>
+                        @item.Quantity
+                        <span style="float: right">
+                            <a class="btn btn-primary btn-sm" href="@Url.Action("AddToCart", "Home", new { Id = item.Tbl_Product.Id, checkOutPage = true })">
+                                +
+                            </a>
+                            <a class="btn btn-danger btn-sm" href="@Url.Action("DecreaseQty", "Home", new { Id = item.Tbl_Product.Id })">
+                                -
+                            </a>
+                        </span>
+                    </td>
+                    <td>
+                        N @item.Tbl_Product.Price
+                    </td>
+                    <td>
+                        N @( (item.Tbl_Product.Price) * (item.Quantity) )
+                    </td>
+                    <td>
+                        <a href="@Url.Action("RemoveFromCart", "Home", new { Id = item.Tbl_Product.Id, checkOutPage = true })">
+                            <i class="fa fa-trash-alt"></i>
+                        </a>
+                    </td>
+                </tr>
+                Total += (item.Tbl_Product.Price) * (item.Quantity);
+            }
+        </tbody>
+        <tfoot>
+            <tr>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th>
+                    Total: N @Total
+                </th>
+            </tr>
+        </tfoot>
+    </table>
+
+    <a class="btn btn-success">
+        Payment >>
+    </a>
+}

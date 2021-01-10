@@ -1,0 +1,30 @@
+﻿@model ECommerceApp.ViewModel.RandomViewModel
+@{
+    ViewBag.Title = "CategoryAdd";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container-fluid">
+    <div>
+        <h4>Dashboard / Categories / Add New Category</h4>
+    </div>
+    <div>
+        <div class="card shadow mb-4">
+            <div class="card-body">
+                @using (Html.BeginForm("CategoryAdd", "Admin", FormMethod.Post, new { enctype="multipart/form-data" }))
+                {
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Tbl_Category.CategoryName)
+                        @Html.TextBoxFor(m => m.Tbl_Category.CategoryName,
+                                new { @class = "form-control", placeholder = "Enter Category Name", required = "required" })
+
+                        <a onclick="window.history.back();" class="btn btn-danger btn-sm" style="color: white">
+                            Cancel
+                        </a>
+                        <input type="submit" class="btn btn-primary btn-sm" value="Save" />
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>

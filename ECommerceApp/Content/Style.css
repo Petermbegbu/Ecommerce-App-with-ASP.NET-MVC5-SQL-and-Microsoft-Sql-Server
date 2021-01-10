@@ -1,0 +1,27 @@
+﻿body{
+    padding-top: 1rem;
+    box-sizing: border-box;
+}
+
+.logo{
+    margin: 0px;
+}
+
+.line{
+    margin: 0.5rem auto;
+    border: solid 1px;
+    width: 100%;
+}
+
+h1,h2,h3,h4,h5,h6{
+    font-family: sans-serif;
+} 
+
+.navContainer{
+    margin-bottom: 20px;
+}
+
+.fab{
+    margin: 0px 13px;
+    cursor: pointer;
+}

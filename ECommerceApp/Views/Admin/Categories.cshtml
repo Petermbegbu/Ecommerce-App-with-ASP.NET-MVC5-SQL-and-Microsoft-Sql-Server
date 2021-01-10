@@ -1,0 +1,57 @@
+﻿@model ECommerceApp.ViewModel.RandomViewModel
+
+@{
+    ViewBag.Title = "Categories";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container-fluid">
+    <div>
+        <h4>Dashboard / Categories</h4>
+    </div>
+    <div>
+        <span class="nav-item">
+            <a class="nav-link" href="tables.html">
+                <i class="fas fa-fw fa-table"></i>
+                <span>Categories Details</span>
+            </a>
+        </span>
+        <a href="~/Admin/CategoryAdd" class="btn btn-info btn-sm"><i class="fa fa-plus"></i>Add New</a>
+    </div>
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">      
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>Serial No.</th>
+                            <th>Category Name</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th>Serial No.</th>
+                            <th>Category Name</th>
+                            <th>Action</th>
+                        </tr>
+                    </tfoot>
+                    <tbody>
+                        @foreach (var category in Model.Tbl_Categories)
+                        {
+                            <tr>
+                                <td>@(Model.Tbl_Categories.IndexOf(category) + 1)</td>
+                                <td>@category.CategoryName</td>
+                                <td>
+                                    @Html.ActionLink("Edit", "CategoryEdit", new { Id = category.Id })
+                                </td>                             
+                            </tr>
+                        }                 
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /.container-fluid -->

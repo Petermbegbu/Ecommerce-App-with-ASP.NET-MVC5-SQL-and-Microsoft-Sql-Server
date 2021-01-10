@@ -1,0 +1,82 @@
+﻿@model ECommerceApp.ViewModel.RandomViewModel
+@{
+    ViewBag.Title = "Product";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<style>
+    .descrptnField{
+        width: 300px;
+    }
+</style>
+
+<div class="container-fluid">
+    <div>
+        <h4>Dashboard / Product</h4>
+    </div>
+    <div>
+        <span class="nav-item">
+            <a class="nav-link" href="#">
+                <i class="fas fa-fw fa-table"></i>
+                <span>Products</span>
+            </a>
+        </span>
+        <a href="~/Admin/ProductAdd" class="btn btn-info btn-sm"><i class="fa fa-plus"></i>Add New</a>
+    </div>
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>Serial No.</th>
+                            <th>Product Name</th>
+                            <th>Description</th>
+                            <th>Upload Image</th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th>Serial No.</th>
+                            <th>Product Name</th>
+                            <th>Description</th>
+                            <th>Upload Image</th>
+                        </tr>
+                    </tfoot>
+                    <tbody>
+                        @foreach (var product in Model.Tbl_Products)
+                        {
+                            using (Html.BeginForm("ProductEdit", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                            {
+                                <input type="hidden" name="Tbl_Product.Quantity" value="@product.Quantity" />
+                                <input type="hidden" name="Tbl_Product.Price" value="@product.Price" />
+                                <input type="hidden" name="Tbl_Product.CreateDate" value="@product.CreateDate" />
+                                <input type="hidden" name="Tbl_Product.CategoryId" value="@product.CategoryId" />
+                                <input type="hidden" name="Tbl_Product.Id" value="@product.Id"/>
+                                <tr>
+                                    <td>@(Model.Tbl_Products.IndexOf(product) + 1)</td>
+                                    <td>
+                                        <input type="text" name="Tbl_Product.ProductName" value="@product.ProductName" class="form-control" />
+                                    </td>
+                                    <td>
+                                        <input type="text" name="Tbl_Product.Description" value="@product.Description" class="descrptnField form-control"/>
+                                    </td>
+                                    <td>
+                                        <input type="file" name="file" id="file" />
+                                    </td>
+                                    <td>
+                                        <button type="submit" class="btn btn-primary">Save</button>
+                                    </td>
+                                </tr>
+                            }
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- /.container-fluid -->
+

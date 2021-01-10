@@ -1,0 +1,72 @@
+﻿@model ECommerceApp.ViewModel.RandomViewModel
+
+@{
+    ViewBag.Title = "Order";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container-fluid">
+    <div>
+        <h4>Dashboard / Order</h4>
+    </div>
+    <div>
+        <span class="nav-item">
+            <a class="nav-link" href="#">
+                <i class="fas fa-fw fa-table"></i>
+                <span>Orders</span>
+            </a>
+        </span>
+    </div>
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>Serial No.</th>
+                            <th>Customer_Name</th>
+                            <th>Email</th>
+                            <th>PhoneNo</th>
+                            <th>State</th>
+                            <th>Delivery_Address</th>
+                            <th>OrderId</th>
+                            <th>Item_Quantity</th>
+                            <th>Total_Price</th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th>Serial No.</th>
+                            <th>Customer_Name</th>
+                            <th>Email</th>
+                            <th>PhoneNo</th>
+                            <th>State</th>
+                            <th>Delivery_Address</th>
+                            <th>OrderId</th>
+                            <th>Item_Quantity</th>
+                            <th>Total_Price</th>
+                        </tr>
+                    </tfoot>
+                    <tbody>
+                        @foreach (var orderTrans in Model.Tbl_OrderTransactions)
+                        {
+                            <tr>
+                                <td>@(Model.Tbl_OrderTransactions.IndexOf(orderTrans) + 1)</td>
+                                <td>@orderTrans.FirstName @orderTrans.LastName</td>
+                                <td>@orderTrans.Email</td>
+                                <td>@orderTrans.PhoneNo</td>
+                                <td>@orderTrans.State</td>
+                                <td>@orderTrans.DeliveryAddress</td>
+                                <td>@orderTrans.Id</td>
+                                <td>@orderTrans.OrderDetail.Quantity</td>
+                                <td>@orderTrans.OrderDetail.SubTotal</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+

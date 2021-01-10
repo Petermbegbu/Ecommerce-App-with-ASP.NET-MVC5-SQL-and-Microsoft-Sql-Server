@@ -1,0 +1,103 @@
+﻿@model ECommerceApp.ViewModel.RandomViewModel
+
+@{
+    ViewBag.Title = "ProductEdit";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>ProductEdit</h2>
+
+@using (Html.BeginForm("ProductEdit", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        @Html.HiddenFor(model => model.Tbl_Product.Id)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Tbl_Product.ProductName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-6">
+                @Html.EditorFor(model => model.Tbl_Product.ProductName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Tbl_Product.ProductName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Tbl_Product.CategoryId, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-6">
+                @Html.DropDownListFor(model => model.Tbl_Product.CategoryId,
+                    new SelectList(Model.Tbl_Categories, "Id", "CategoryName"),
+                    "-Select Category-", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Tbl_Product.CategoryId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Tbl_Product.IsActive, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-6">
+                @Html.CheckBoxFor(model => model.Tbl_Product.IsActive) 
+                @Html.ValidationMessageFor(model => model.Tbl_Product.IsActive, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Tbl_Product.IsDelete, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-6">
+                @Html.CheckBoxFor(model => model.Tbl_Product.IsDelete)
+                @Html.ValidationMessageFor(model => model.Tbl_Product.IsDelete, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        @Html.HiddenFor(model => model.Tbl_Product.CreateDate)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Tbl_Product.Description, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-6">
+                @Html.EditorFor(model => model.Tbl_Product.Description, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Tbl_Product.Description, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Tbl_Product.ProductImage, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-6">
+                <input type="file" name="file" id="file"/>
+                @Html.ValidationMessageFor(model => model.Tbl_Product.ProductImage, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Tbl_Product.IsFeatured, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-6">
+                @Html.CheckBoxFor(model => model.Tbl_Product.IsFeatured)
+                @Html.ValidationMessageFor(model => model.Tbl_Product.IsFeatured, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Tbl_Product.Quantity, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-6">
+                @Html.EditorFor(model => model.Tbl_Product.Quantity, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Tbl_Product.Quantity, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Tbl_Product.Price, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-6">
+                @Html.EditorFor(model => model.Tbl_Product.Price, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Tbl_Product.Price, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-6">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </div>
+}
+
+<div>
+    @Html.ActionLink("Back to Product List", "Product")
+</div>
